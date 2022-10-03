@@ -20,7 +20,7 @@ const Comment = ({id, refresh, setRefresh, comments, setComments}) => {
         // uploadData.append("owner", owner)
         // uploadData.append("id", imageId)
         axios
-            .post(`http://localhost:5005/home/image/comment`, {comment, imageId, owner})
+            .post(`https://mittens-buffalo.cyclic.app/home/image/comment`, {comment, imageId, owner})
             .then((res) => {
 
                 // refresh render 

@@ -21,7 +21,6 @@ const LoginPage = ({toggler}) => {
   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [setErrorMessage] = useState(undefined);
   const { setToken, authenticateUser } = useContext(AuthContext);
 
   const handleLoginSubmit = (e) => {
@@ -29,17 +28,14 @@ const LoginPage = ({toggler}) => {
       const requestBody = { email, password };
     
       axios
-          .post(`http://localhost:5005/auth/login`, requestBody)
+          .post(`https://mittens-buffalo.cyclic.app/auth/login`, requestBody)
           .then((response) => {
             console.log("JWT token", response.data.authToken);
             setToken(response.data.authToken);
             authenticateUser();
-            navigate("/home");
           })
-          .catch((error) => {
-            const errorDescription = error?.response?.data?.message;
-            setErrorMessage(errorDescription);
-          });
+          .then(response => navigate("/home") )
+          .catch((error) => console.log(error));
       };
 
   return (

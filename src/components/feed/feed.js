@@ -21,7 +21,7 @@ useEffect(() => {
   const storeToken = localStorage.getItem('authToken');
 
    axios
-        .get('http://localhost:5005/home/images', {headers: {Authorization: `Bearer ${storeToken}`}} )
+        .get('https://mittens-buffalo.cyclic.app/home/images', {headers: {Authorization: `Bearer ${storeToken}`}} )
         .then((res) => setImages(res.data))
         .catch((err) => console.log(err));
         // eslint-disable-next-line react-hooks/exhaustive-deps

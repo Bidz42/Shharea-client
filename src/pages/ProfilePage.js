@@ -8,6 +8,7 @@ import {
   ImageListItemBar,
   IconButton,
   Typography,
+  Link
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { AuthContext } from "../context/context";
@@ -17,29 +18,31 @@ const ProfilePage = () => {
   const { id } = useParams();
   const [ownImages, setOwnImages] = useState([]);
   const { user } = useContext(AuthContext);
-
   const [hoverImage, setHoverImage] = useState([false, " "]);
+  const [refresh, setRefresh] = useState(false)
 
   const storeToken = localStorage.getItem("authToken");
  
   useEffect(() => {
     axios
-      .get(`http://localhost:5005/user/profile/${id}`, {
+      .get(`https://mittens-buffalo.cyclic.app/user/profile/${id}`, {
         headers: { Authorization: `Bearer ${storeToken}` },
       })
       .then((response) => setOwnImages(response.data))
       .catch((err) => console.log(err));
    // eslint-disable-next-line
-  }, [id]);
+  }, [id, refresh]);
 
   const handleDelete = (id) => {
     axios 
-      .delete(`http://localhost:5005/home/image/${id}`, 
+      .delete(`https://mittens-buffalo.cyclic.app/home/image/${id}`, 
       { headers: { Authorization: `Bearer ${storeToken}` },
       })
-      .then((response) => console.log(response.data))
+      .then((response) => {console.log(response.data)
+      setRefresh(true)})
       .catch((err) => console.log(err));
   };
+
 
 
   return (
@@ -58,7 +61,6 @@ const ProfilePage = () => {
           ownImages?.map((item) => (
             <div key={item._id}>
               <ImageListItem color="secondary">
-                  {/* <Link href={`/home/image/${item._id}`}> */}
                 <img
                   src={item?.imageUrl}
                   srcSet={item?.imageUrl}
@@ -67,7 +69,7 @@ const ProfilePage = () => {
                 />
               
                   <ImageListItemBar
-                    title={item?.name}
+                    title={<Link href={`/home/image/${item._id}`}> {item?.name} </Link>}
                     actionIcon={
                       // color is set by HoverImage state change
                       <IconButton

@@ -37,7 +37,7 @@ const ImagePage = () => {
     const storeToken = localStorage.getItem("authToken");
 
     axios
-      .get(`http://localhost:5005/home/image/${id}`, {
+      .get(`https://mittens-buffalo.cyclic.app/home/image/${id}`, {
         headers: { Authorization: `Bearer ${storeToken}` },
       })
       .then((res) => {
@@ -50,7 +50,7 @@ const ImagePage = () => {
   const handleLike = (e) => {
     e.preventDefault();
     axios
-      .post(`http://localhost:5005/home/image/like`, { userId, id })
+      .post(`https://mittens-buffalo.cyclic.app/home/image/like`, { userId, id })
       .then((res) => {
         setRefresh(!refresh)
         console.log(res);

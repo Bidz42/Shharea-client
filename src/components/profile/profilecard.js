@@ -26,7 +26,7 @@ const ProfileCard = ({ id }) => {
     const storeToken = localStorage.getItem('authToken');
 
     axios
-      .get(`http://localhost:5005/user/${id}/details`, {headers: {Authorization: `Bearer ${storeToken}`}})
+      .get(`https://mittens-buffalo.cyclic.app/user/${id}/details`, {headers: {Authorization: `Bearer ${storeToken}`}})
       .then((response) => setDetails(response.data))
       .catch((err) => console.log(err));
     // eslint-disable-next-line
@@ -46,7 +46,7 @@ const ProfileCard = ({ id }) => {
     
 
     axios
-      .post("http://localhost:5005/user/profile", updateProfile )
+      .post("https://mittens-buffalo.cyclic.app/user/profile", updateProfile )
       .then((response) => {
         setRefresh(!refresh)
         toggler()
@@ -59,7 +59,7 @@ const ProfileCard = ({ id }) => {
   //   (await friend) ? setFriend(false) : setFriend(true);
   //   try {
   //     const friendsResponse = await axios.post(
-  //       `http://localhost:5005/user/${id}/friends`,
+  //       `https://mittens-buffalo.cyclic.app/user/${id}/friends`,
   //       { userId }
   //     );
   //     console.log(friendsResponse);

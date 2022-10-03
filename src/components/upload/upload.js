@@ -27,7 +27,7 @@ const Upload = ({setRefresh, refresh}) => {
     uploadData.append("tags", JSON.stringify(tagsArray));
      
     axios
-        .post('http://localhost:5005/home/upload', uploadData)
+        .post('https://mittens-buffalo.cyclic.app/home/upload', uploadData)
         .then((response) => {
           setRefresh(!refresh)
           console.log(response)

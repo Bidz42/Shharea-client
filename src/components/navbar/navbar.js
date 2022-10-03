@@ -1,5 +1,5 @@
 import React, {useContext, useState, useEffect} from 'react';
-import {Link, useNavigate} from "react-router-dom"; 
+import {Link} from "react-router-dom"; 
 import {AuthContext} from '../../context/context';
 
 
@@ -39,15 +39,15 @@ const handleCloseUserMenu = () => {
   setAnchorElUser(null);
 };
 
-const navigate = useNavigate()
 const { logOutUser, user } = useContext(AuthContext);
 const id = user?._id;
 
+const storeToken = localStorage.getItem('authToken');
+
 useEffect(() => {
-  const storeToken = localStorage.getItem('authToken');
 
   axios
-    .get(`http://localhost:5005/user/${id}/details`, {headers: {Authorization: `Bearer ${storeToken}`}})
+    .get(`https://mittens-buffalo.cyclic.app/user/${id}/details`, {headers: {Authorization: `Bearer ${storeToken}`}})
     .then((response) => setDetails(response.data))
     .catch((err) => console.log(err));
     // eslint-disable-next-line
@@ -67,7 +67,7 @@ useEffect(() => {
           variant="h6"
           noWrap
           component="a"
-          href="/home"
+          href= {storeToken ? "/home" : "/"}
           sx={{
             mr: 2,
             display: { xs: 'none', md: 'flex' },
@@ -78,7 +78,7 @@ useEffect(() => {
             textDecoration: 'none',
           }}
         >
-          <img src={logo} style={{width:'120px', height:'30px'}} />
+          <img src={logo} style={{width:'120px', height:'30px'}} alt="sharea logo" />
         </Typography>
 
         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -112,15 +112,28 @@ useEffect(() => {
               display: { xs: 'block', md: 'none' },
             }}
           >
-              <MenuItem onClick={handleCloseNavMenu}>
+
+            {!storeToken &&
+
+               <MenuItem onClick={handleCloseNavMenu}>
                  <Link to='/'  style={{ textDecoration: 'none', color:'white' }}><Typography textAlign="center">Login</Typography></Link>
                 </MenuItem> 
+            }
+
+              {storeToken && 
                 <MenuItem onClick={handleCloseNavMenu}>
                  <Link to='explore'  style={{ textDecoration: 'none', color:'white'  }}><Typography textAlign="center">Explore</Typography></Link>
                 </MenuItem> 
+              }
+              
+              {storeToken &&  
+                
                 <MenuItem onClick={handleCloseNavMenu}>
                  <Link to='join'  style={{ textDecoration: 'none', color:'white'  }}><Typography textAlign="center">Chat</Typography></Link>
                 </MenuItem> 
+              }
+          
+          
           </Menu>
         </Box>
 
@@ -129,7 +142,7 @@ useEffect(() => {
           variant="h5"
           noWrap
           component="a"
-          href="/home"
+          href= {storeToken ? "/home" : "/"} 
           sx={{
             mr: 2,
             display: { xs: 'flex', md: 'none' },
@@ -141,13 +154,13 @@ useEffect(() => {
             textDecoration: 'none',
           }}
         >
-         <img src={logo} style={{width:'120px', height:'30px'}} />
+         <img src={logo} style={{width:'120px', height:'30px'}} alt="sharea logo" />
         </Typography>
 
         
         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
            
-            {!user &&
+            {!storeToken &&
 
             <Button
               onClick={handleCloseNavMenu}
@@ -157,7 +170,7 @@ useEffect(() => {
             </Button>
             }
 
-            {user &&
+            {storeToken &&
             <>
 
             <Button
@@ -180,7 +193,7 @@ useEffect(() => {
 
         </Box>
 
-        {user && 
+        {storeToken && 
         <Box sx={{ flexGrow: 0 }}>
           <Tooltip title="Open settings">
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

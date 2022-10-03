@@ -7,27 +7,27 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { ApiContext } from "./context/context";
 import { ThemeProvider, createTheme, CssBaseline   } from '@mui/material';
 
-// export const theme = createTheme ({
-//     palette: {
-//         background: {
-//           default: '#4c4a4a',
-//           paper: '#0c0c0c',
-//         },
-//         primary: {
-//           main: '#0CD3FC',
-//         },
-//         secondary: {
-//           main: '#F06FCB',
-//         },
-//         error: {
-//           main: '#A495D8',
-//         },
-//         text: {
-//           primary: '#ffffff',
-//           secondary: '#FFFFFF',
-//         },
-//     },  
-// });
+export const theme = createTheme ({
+    palette: {
+        background: {
+          default: '#4c4a4a',
+          paper: '#0c0c0c',
+        },
+        primary: {
+          main: '#0CD3FC',
+        },
+        secondary: {
+          main: '#F06FCB',
+        },
+        error: {
+          main: '#A495D8',
+        },
+        text: {
+          primary: '#ffffff',
+          secondary: '#FFFFFF',
+        },
+    },  
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
