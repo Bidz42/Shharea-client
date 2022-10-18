@@ -11,6 +11,7 @@ This is a social media site wherein users can upload, like and comment on images
 - SHH-AREA is built on javascript. 
 - The server is built using node.js, express and mongoDB.
 - The client has been built using React.
+- Tailwind was used for UI 
 
 ## Routes
 
