@@ -1,70 +1,43 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# SHH-AREA    
 
-## Available Scripts
+The idea behind SHH-AREA was simple. An area for people to share.
+This is a social media site wherein users can upload, like and comment on images uploaded by fellow users.
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Languages
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- SHH-AREA is built on javascript. 
+- The server is built using node.js, express and mongoDB.
+- The client has been built using React.
 
-### `npm test`
+## Routes
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- There is a sign up and login route for users to authenticate themselves.
+- Users are welcomed to the homepage where there is a feed of all uploaded images.
+- Here they can click on an image which brings up a new page with the image details.
+- Users are then able to like or comment on the image and also see how many likes and comments said image has.
+- There is a route with an explore page which has a simplified view of all the iamges in the databse aswell as users
+- The user has access to thier own profile page wherein they can upload a profile picture aswell as update information such as location, occupation and whatever else theyd like to add.
+- Here the user can see all their pictures
+- Similarly users have access to the profile pages of other users.
+- There is also a chat eroute which has been linked to an API which mprovides users with chat rooms wherein they can video and audio call. Users cna also have a live chat within this API. 
 
-### `npm run build`
+ 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Authors
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- https://www.linkedin.com/in/muhammed-rahman / https://github.com/Bidz42
+- https://www.linkedin.com/in/soufiane-bdaoui / https://github.com/Bdaoui
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Source
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- https://shh-area.netlify.app/
+- https://github.com/Bidz42/shharea-client
+- https://github.com/Bidz42/shharea-server
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
